@@ -1,0 +1,79 @@
+<div class="navbar-mobile-overlay" [class.navbar-mobile-overlay-expanded]="navbarMobileExpand"></div>
+
+<div class="navbar-mobile-container" [class.navbar-mobile-expanded]="navbarMobileExpand"
+     [class.navbar-mobile-collapsed]="!navbarMobileExpand">
+    <div class="user-profile">
+        <div class="photo" [style.background-image]="'url(' + (user?.picture) + ')'"></div>
+        <div>
+            <div class="name"><h3>{{user?.firstName}} {{user?.lastName}}</h3></div>
+            <div class="email">{{user?.email}}</div>
+        </div>
+        <i class="material-icons" (click)="navbarMobileExpand = false">close</i>
+    </div>
+    <div routerLink="/dashboard" routerLinkActive="navbar-mobile-item-active" class="navbar-mobile-item"
+         (click)="navbarMobileExpand = false">
+        <i class="material-icons icon">dashboard</i> <span class="text">Dashboard</span>
+    </div>
+    <div routerLink="/search" routerLinkActive="navbar-mobile-item-active" class="navbar-mobile-item"
+         (click)="navbarMobileExpand = false">
+        <i class="material-icons icon">search</i> <span class="text">Search</span>
+    </div>
+    <div routerLink="/camera-settings" routerLinkActive="navbar-mobile-item-active" class="navbar-mobile-item"
+         (click)="navbarMobileExpand = false">
+        <i class="material-icons icon">linked_camera</i> <span class="text">Camera's</span>
+    </div>
+    <div routerLink="/account" routerLinkActive="navbar-mobile-item-active" class="navbar-mobile-item"
+         (click)="navbarMobileExpand = false">
+        <i class="material-icons icon">person</i> <span class="text">Account</span>
+    </div>
+</div>
+
+<div class="navbar-mobile">
+    <div class="navbar-gap">
+        <svg height="64" width="2000">
+            <polygon points="2000,0 1042,0 1000,42 958,0 0,0 0,64 2000,64" class="navbar-gap-color"></polygon>
+        </svg>
+    </div>
+    <div class="navbar-container">
+
+        <!--<div class="button-gap">-->
+            <!--<img src="/src/assets/images/button-gap.svg" alt="" class="">-->
+        <!--</div>-->
+        <!--<div></div>-->
+        <!--</div>-->
+        <a routerLink="/search" (click)="navbarMobileExpand = false">
+            <span class="main-button">
+                <i class="material-icons">search</i>
+            </span>
+        </a>
+        <div class="left-navbar">
+            <a class="no-underline" (click)="navbarMobileExpand = !navbarMobileExpand">
+                <span class="item">
+                    <i class="material-icons" *ngIf="!navbarMobileExpand">menu</i>
+                    <i class="material-icons" *ngIf="navbarMobileExpand">close</i>
+                </span>
+            </a>
+            <!--<a routerLink="/dashboard" class="no-underline">-->
+                <!--<span class="item">-->
+                    <!--<i class="material-icons">linked_camera</i>-->
+                <!--</span>-->
+            <!--</a>-->
+        </div>
+
+        <div class="right-navbar">
+            <a class="no-underline hideElse" (click)="navbarMobileExpand = false">
+                <span class="item" [matMenuTriggerFor]="menu">
+                    <mat-icon>more_vert</mat-icon>
+                </span>
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<mat-menu #menu="matMenu" class="hideElse">
+    <button mat-menu-item (click)="openDialog()">
+        <mat-icon>linked_camera</mat-icon>
+        <span>Add camera</span>
+    </button>
+</mat-menu>

@@ -1,0 +1,48 @@
+<div class="mt-20">
+    <mat-form-field class="" color="accent" appearance="fill">
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event.target.value)">
+        <mat-icon matSuffix>filter_list</mat-icon>
+    </mat-form-field>
+
+    <!-- table to change camera's location -->
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 camera-settings-table">
+        <ng-container matColumnDef="active">
+            <th mat-header-cell *matHeaderCellDef>
+                <!--<mat-checkbox (change)="$event ? masterToggle() : null"-->
+                              <!--[checked]="selection.hasValue() && isAllSelected()"-->
+                              <!--[indeterminate]="selection.hasValue() && !isAllSelected()">-->
+                <!--</mat-checkbox>-->
+                Active
+            </th>
+            <td mat-cell *matCellDef="let camera">
+                <mat-checkbox (click)="$event.stopPropagation(); toggleActive(camera)"
+                              (change)="$event ? selection.toggle(camera) : null"
+                              [checked]="selection.isSelected(camera)">
+                </mat-checkbox>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="IP">
+            <th mat-header-cell *matHeaderCellDef> IP</th>
+            <td mat-cell *matCellDef="let camera"> {{camera?.ip_address}} </td>
+        </ng-container>
+        <ng-container matColumnDef="place">
+            <th mat-header-cell *matHeaderCellDef> Location</th>
+            <td mat-cell *matCellDef="let camera">
+                <mat-form-field class="input-camera-settings" color="accent" appearance="fill">
+                    <input matInput value="{{camera?.locatie}}" (keyup.enter)="locatie.blur()"
+                           (blur)="updateCamera(camera, locatie.value)" #locatie>
+                </mat-form-field>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef> Del</th>
+            <td mat-cell *matCellDef="let camera">
+                <i class="material-icons cursor-pointer" (click)="deleteCamera(camera?.id)">delete_outline</i>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>

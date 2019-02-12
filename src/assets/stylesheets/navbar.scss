@@ -1,0 +1,341 @@
+.navbar {
+  position: relative;
+  z-index: 999;
+}
+
+.navbar-brand {
+  display: none;
+  opacity: 0;
+}
+
+
+.hamburger {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $text-color;
+  color: #fff;
+  cursor: pointer;
+}
+
+.toolbar {
+  padding-left: 0 !important;
+  color: $text-color !important;
+  position: fixed;
+  height: 64px !important;
+
+  .toolbar-text {
+    margin-left: 16px;
+  }
+}
+
+.sidenav-desktop {
+  top: 64px;
+  width: 64px;
+  height: calc(100vh - 64px);
+  background-color: $light-grey;
+  color: $text-color;
+  position: fixed;
+
+  a {
+    color: $text-color;
+    text-decoration: none;
+
+    .sidenav-item {
+      height: 64px;
+      cursor: pointer;
+      display: flex;
+      flex-wrap: nowrap;
+
+      .icon {
+        width: 64px;
+        height: 64px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid $line-color;
+      }
+
+      .text {
+        height: 64px;
+        width: (250px - 64px - 16px);
+        display: none;
+        border-bottom: 1px solid $line-color;
+        opacity: 0;
+
+        &:first-child {
+          border-top: 1px solid $line-color !important;
+        }
+      }
+    }
+  }
+}
+
+.sidenav-desktop-expanded {
+  width: 250px;
+  box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+
+  .navbar-brand {
+    position: absolute;
+    bottom: 20px;
+    animation: opacityNavbar 0.3s;
+    opacity: 1 !important;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+
+    img {
+      width: 150px;
+    }
+  }
+
+  .sidenav-item {
+    .text {
+      display: flex !important;
+      justify-content: left;
+      padding-right: 16px;
+      align-items: center;
+      animation: opacityNavbar 0.3s;
+      opacity: 1 !important;
+
+      @keyframes opacityNavbar {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.navbar-mobile {
+  position: fixed;
+  z-index: 1000;
+  bottom: 0;
+  left: 0;
+  width: calc(100vw);
+  height: 64px;
+  background-color: transparent;
+
+  .navbar-gap {
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    filter: drop-shadow(0 0 1.5px rgba(0, 0, 0, 0.18));
+
+
+    .navbar-gap-color {
+      fill: #fff !important;
+
+    }
+  }
+
+  //.button-gap {
+  //  position: absolute;
+  //  height: 56px;
+  //  left: 50%;
+  //  transform: translateX(-50%);
+  //  bottom: 0;
+  //  display: flex;
+  //  //box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+  //
+  //
+  //
+  //  &:before, &:after {
+  //    content: '';
+  //    height: 56px;
+  //    width: 5000px;
+  //    margin-bottom: 80px;
+  //    background-color: $light-grey;
+  //    margin-left: -77px;
+  //    margin-right: -77px;
+  //
+  //  }
+  //}
+
+  .main-button {
+    width: 46px;
+    height: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    top: -37%;
+    background-color: $accent-color;
+    color: #fff;
+    //box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3));
+
+
+    i {
+      transform: rotate(-45deg);
+    }
+  }
+
+  .item {
+    height: 64px;
+    padding: 0 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $text-color;
+    text-decoration: none !important;
+    flex-wrap: wrap-reverse;
+  }
+
+  .left-navbar {
+    margin-right: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    left: 0;
+    position: absolute;
+    padding-left: 8px;
+  }
+
+  .right-navbar {
+    margin-left: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    right: 0;
+    position: absolute;
+    padding-right: 8px;
+  }
+}
+
+.navbar-mobile-container {
+  position: fixed;
+  z-index: 999;
+  height: 100vh;
+  width: 100vw;
+  background-color: #fff;
+  display: none;
+  top: 100%;
+
+  .navbar-mobile-item {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    margin: 8px;
+    color: #444444;
+    font-weight: bold;
+    font-size: 14px;
+
+    span {
+      margin-left: 16px;
+    }
+  }
+
+  .navbar-mobile-item-active {
+    border-radius: 0.25rem;
+    background-color: $accent-color-light;
+    color: $accent-color-dark;
+  }
+
+  .user-profile {
+    color: $text-color;
+    padding: 16px;
+    border-bottom: 1px solid $line-color;
+    display: flex;
+    align-items: center;
+
+    .photo {
+      height: 45px;
+      width: 45px;
+      border-radius: 50%;
+      background-color: $line-color;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      margin-right: 16px;
+    }
+
+    .name {
+      font-weight: bold;
+
+      h3 {
+        margin: 0;
+      }
+    }
+    .email {
+      font-size: 14px;
+    }
+
+    i {
+      margin-left: auto;
+    }
+  }
+}
+
+.navbar-mobile-expanded {
+  display: block;
+  animation: navbarMobileAnimation 0.3s ease-out;
+  top: 0;
+
+  @keyframes navbarMobileAnimation {
+    from {
+      top: 100%;
+    }
+    to {
+      top: 0;
+    }
+  }
+}
+
+.navbar-mobile-collapsed {
+  display: block;
+  animation: navbarMobileAnimationCollapse 0.2s ease-in;
+  top: 100%;
+
+  @keyframes navbarMobileAnimationCollapse {
+    from {
+      top: 0;
+    }
+    to {
+      top: 100%;
+    }
+  }
+}
+
+.navbar-mobile-overlay {
+  display: none;
+  z-index: 998;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.navbar-mobile-overlay-expanded {
+  display: block;
+  animation: navbarMobileOverlay 0.2s;
+  opacity: 1;
+
+  @keyframes navbarMobileOverlay {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .toolbar {
+    position: relative;
+    //left: -16px;
+    //top: -16px;
+    width: calc(100vw) !important;
+    background-color: #fff;
+    //filter: drop-shadow(0 0 1.5px rgba(0, 0, 0, 0.18));
+    border-bottom: 1px solid $line-color;
+  }
+}

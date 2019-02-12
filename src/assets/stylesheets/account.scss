@@ -1,0 +1,19 @@
+.account-user-photo {
+  height: 100px;
+  width: 100px;
+  background-color: red;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.change-picture {
+  margin-bottom: 1.34375em;
+  display: flex;
+  align-items: center;
+
+  button {
+    margin-left: 16px;
+  }
+}

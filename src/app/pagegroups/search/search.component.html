@@ -1,0 +1,7 @@
+<div class="mt-20">
+    <mat-form-field class="" color="accent" appearance="fill">
+        <mat-label>Search for a person</mat-label>
+        <mat-icon matSuffix>search</mat-icon>
+        <input matInput (keyup)="applyFilter($event.target.value)">
+    </mat-form-field>
+</div>

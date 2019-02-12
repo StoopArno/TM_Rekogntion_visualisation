@@ -1,0 +1,18 @@
+<div mat-dialog-content>
+    <p>Add a new camera</p>
+    <form [formGroup]="addCameraForm" (ngSubmit)="insertCamera()" novalidate>
+        <mat-form-field appearance="fill" color="accent">
+            <mat-label>IP address</mat-label>
+            <input matInput formControlName="ip_address">
+        </mat-form-field>
+        <mat-form-field appearance="fill" color="accent">
+            <mat-label>Location</mat-label>
+            <input matInput formControlName="locatie">
+        </mat-form-field>
+        <div mat-dialog-actions>
+            <button mat-button (click)="onNoClick()">No Thanks</button>
+            <button mat-button type="submit">Ok</button>
+        </div>
+    </form>
+</div>
+

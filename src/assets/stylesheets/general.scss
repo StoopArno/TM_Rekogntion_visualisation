@@ -1,0 +1,90 @@
+body {
+  margin: 0 !important;
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  color: $text-color;
+}
+
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+.container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.content {
+  overflow-y: auto;
+  height: calc(100vh - 144px);
+  width: calc(100vw - 144px);
+  margin-left: 64px;
+  top: 64px;
+  padding: 40px;
+  position: fixed;
+}
+
+.active {
+  color: #fff !important;
+
+  .sidenav-item {
+    background-color: $accent-color !important;
+  }
+}
+
+.mobile-hide {
+  display: block;
+}
+
+.mobile-show {
+  display: none;
+}
+
+.no-underline {
+  text-decoration: none;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.sub-title {
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .content {
+    position: relative;
+    top: 0;
+    margin: 0;
+    padding: 16px;
+    padding-top: 0;
+    width: calc(100vw - 32px);
+    height: auto;
+    margin-bottom: 100px;
+  }
+
+  .mobile-hide {
+    display: none;
+  }
+
+  .mobile-show {
+    display: block;
+  }
+}

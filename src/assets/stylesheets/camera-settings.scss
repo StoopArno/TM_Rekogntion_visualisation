@@ -1,0 +1,25 @@
+.camera-settings-table {
+  width: 100%;
+
+  .mat-form-field-wrapper {
+    padding-top: 1.34375em !important;
+  }
+}
+
+.hideElse {
+  display: none;
+}
+
+.showCameraSettings {
+  display: block;
+}
+
+.input-camera-settings {
+  @media (max-width: 400px) {
+    width: 125px !important;
+  }
+
+  @media (min-width: 400px) {
+    width: 90% ;
+  }
+}
