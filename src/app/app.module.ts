@@ -14,7 +14,7 @@ import {NavbarMobileComponent} from './_shared_components/navbar-mobile/navbar-m
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {AddCameraComponent} from './pagegroups/camera-settings/add-camera/add-camera.component';
-import {Router, RouterModule} from '@angular/router';
+// import {Router, RouterModule} from '@angular/router';
 
 @NgModule({
     declarations: [
@@ -34,13 +34,12 @@ import {Router, RouterModule} from '@angular/router';
         CustomMaterialModule,
         ReactiveFormsModule,
         HttpClientModule,
-        RouterModule,
     ],
     entryComponents: [
         AddCameraComponent,
     ],
     providers: [],
-    bootstrap: [AppComponent, RouterModule]
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }

@@ -10,6 +10,11 @@ const routes: Routes = [
     {path: 'search', component: SearchComponent},
     {path: 'camera-settings', component: CameraSettingsComponent},
     {path: 'account', component: AccountComponent},
+    {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
+    // {path: '', component: DashboardComponent},
+    // Niet gedefinieerde routes doorverwijzen naar error page
+    {path: '**', redirectTo: 'dashboard'},
+    // {path: '**', component: DashboardComponent},
 ];
 
 @NgModule({

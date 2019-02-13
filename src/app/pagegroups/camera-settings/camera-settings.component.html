@@ -1,17 +1,23 @@
 <div class="mt-20">
-    <mat-form-field class="" color="accent" appearance="fill">
-        <mat-label>Filter</mat-label>
-        <input matInput (keyup)="applyFilter($event.target.value)">
-        <mat-icon matSuffix>filter_list</mat-icon>
-    </mat-form-field>
+    <div class="camera-top-input">
+        <mat-form-field class="" color="accent" appearance="fill">
+            <mat-label>Filter</mat-label>
+            <input matInput (keyup)="applyFilter($event.target.value)">
+            <mat-icon matSuffix>filter_list</mat-icon>
+        </mat-form-field>
+        <span class="mobile-hide">
+            <button mat-raised-button color="accent" (click)="openDialog()">Add camera</button>
+        </span>
+    </div>
+
 
     <!-- table to change camera's location -->
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 camera-settings-table">
         <ng-container matColumnDef="active">
             <th mat-header-cell *matHeaderCellDef>
                 <!--<mat-checkbox (change)="$event ? masterToggle() : null"-->
-                              <!--[checked]="selection.hasValue() && isAllSelected()"-->
-                              <!--[indeterminate]="selection.hasValue() && !isAllSelected()">-->
+                <!--[checked]="selection.hasValue() && isAllSelected()"-->
+                <!--[indeterminate]="selection.hasValue() && !isAllSelected()">-->
                 <!--</mat-checkbox>-->
                 Active
             </th>

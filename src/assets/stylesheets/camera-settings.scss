@@ -10,8 +10,17 @@
   display: none;
 }
 
+.camera-top-input {
+  display: flex;
+
+  button {
+    margin-top: 8px;
+    margin-left: 16px;
+  }
+}
+
 .showCameraSettings {
-  display: block;
+  display: block !important;
 }
 
 .input-camera-settings {

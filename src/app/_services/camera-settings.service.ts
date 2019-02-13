@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Camera} from '../_interfaces/camera';
 import {BehaviorSubject, Observable, of} from 'rxjs';
 import {User} from '../_interfaces/user';
+import {AddCameraComponent} from '../pagegroups/camera-settings/add-camera/add-camera.component';
 
 @Injectable({
     providedIn: 'root'

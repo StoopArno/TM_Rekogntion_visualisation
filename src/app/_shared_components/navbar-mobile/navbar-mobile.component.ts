@@ -1,9 +1,10 @@
 import {Component, OnInit, Inject} from '@angular/core';
 import {AccountService} from '../../_services/account.service';
 import {User} from '../../_interfaces/user';
-import {AddCameraComponent} from '../../pagegroups/camera-settings/add-camera/add-camera.component';
+// import {AddCameraComponent} from '../../pagegroups/camera-settings/add-camera/add-camera.component';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import {RouterLink, RouterLinkActive} from '@angular/router';
+import {ActivatedRoute, Router, RouterLink, RouterLinkActive} from '@angular/router';
+import {AddCameraComponent} from '../../pagegroups/camera-settings/add-camera/add-camera.component';
 
 @Component({
     selector: 'app-navbar-mobile',
@@ -17,15 +18,23 @@ export class NavbarMobileComponent implements OnInit {
 
     ip_address;
     locatie;
-    router;
 
-    constructor(private accountService: AccountService, public dialog: MatDialog, private routerLinkActive: RouterLinkActive) {
-        this.router = routerLinkActive;
+    isCameraSettings = false;
+
+    constructor(private accountService: AccountService, public dialog: MatDialog, private router: Router) {
     }
 
     ngOnInit() {
         this.accountService.loggedUser.subscribe(data => {
             this.user = data;
+        });
+
+        this.router.events.subscribe((val) => {
+            if (location.pathname === '/camera-settings') {
+                this.isCameraSettings = true;
+            } else {
+                this.isCameraSettings = false;
+            }
         });
     }
 

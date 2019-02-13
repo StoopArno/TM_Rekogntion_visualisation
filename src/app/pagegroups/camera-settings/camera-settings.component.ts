@@ -1,10 +1,12 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {ToolbarService} from '../../_services/toolbar.service';
 import {Camera} from '../../_interfaces/camera';
-import {MatTableDataSource} from '@angular/material';
+import {MatDialog, MatTableDataSource} from '@angular/material';
 import {CameraSettingsService} from '../../_services/camera-settings.service';
 import {SelectionModel} from '@angular/cdk/collections';
 import {forEach} from '@angular/router/src/utils/collection';
+import {AccountService} from '../../_services/account.service';
+import {AddCameraComponent} from './add-camera/add-camera.component';
 
 // const data: Camera[] = [
 //   {ID: 1, IP: '172.16.0.7', place: 'aula'},
@@ -26,7 +28,10 @@ export class CameraSettingsComponent implements OnInit {
     selection;
     selectedCameras;
 
-    constructor(private toolbarService: ToolbarService, private cameraSettingsService: CameraSettingsService, public cdref: ChangeDetectorRef) {
+    ip_address;
+    locatie;
+
+    constructor(private toolbarService: ToolbarService, private cameraSettingsService: CameraSettingsService, public cdref: ChangeDetectorRef, public dialog: MatDialog) {
     }
 
     ngOnInit() {
@@ -93,4 +98,14 @@ export class CameraSettingsComponent implements OnInit {
         this.cameraSettingsService.deleteCamera(cameraId);
     }
 
+    openDialog(): void {
+        const dialogRef = this.dialog.open(AddCameraComponent, {
+            width: '300px',
+            data: {ip_address: this.ip_address, locatie: this.locatie}
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+            console.log('The dialog was closed');
+        });
+    }
 }

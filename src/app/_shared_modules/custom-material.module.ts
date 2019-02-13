@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {
     MatBottomSheetModule, MatButtonModule,
-    MatCheckboxModule,
+    MatCheckboxModule, MatExpansionModule,
     MatFormFieldModule, MatIconModule, MatInputModule,
     MatMenuModule,
     MatSidenavModule, MatTableModule,
@@ -26,6 +26,7 @@ import {MatDialogModule} from '@angular/material/dialog';
         MatButtonModule,
         MatTableModule,
         MatDialogModule,
+        MatExpansionModule,
     ],
     exports: [
         MatToolbarModule,
@@ -40,6 +41,7 @@ import {MatDialogModule} from '@angular/material/dialog';
         MatButtonModule,
         MatTableModule,
         MatDialogModule,
+        MatExpansionModule,
     ],
     declarations: []
 })

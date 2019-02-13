@@ -1,0 +1,24 @@
+.input-flex {
+  display: flex;
+  align-items: center;
+
+  //input {
+  //  min-width: ;
+  //}
+
+  .mat-form-field-infix {
+    width: auto;
+  }
+
+  button {
+    margin-bottom: 1.34375em;
+    padding: 0 !important;
+    min-width: 40px;
+  }
+}
+
+.expansion-panel-custom {
+  span {
+    display: block;
+  }
+}

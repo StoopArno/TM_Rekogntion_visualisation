@@ -1,7 +1,36 @@
 <div class="mt-20">
-    <mat-form-field class="" color="accent" appearance="fill">
-        <mat-label>Search for a person</mat-label>
-        <mat-icon matSuffix>search</mat-icon>
-        <input matInput (keyup)="applyFilter($event.target.value)">
-    </mat-form-field>
+    <div class="input-flex">
+        <mat-form-field class="" color="accent" appearance="fill">
+            <mat-label>First name</mat-label>
+            <input matInput #firstName>
+        </mat-form-field>
+        <mat-form-field class="" color="accent" appearance="fill">
+            <mat-label>Last name</mat-label>
+            <input matInput #lastName>
+        </mat-form-field>
+        <button mat-button (click)="searchPerson(firstName.value, lastName.value)">
+            <mat-icon>search</mat-icon>
+        </button>
+    </div>
+
+    <div class="search-results" *ngIf="persons">
+        <mat-accordion>
+            <div *ngFor="let person of persons">
+                <mat-expansion-panel (opened)="openPerson(person.id)"
+                                     (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            {{person.firstName}} {{person.lastName}}
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <p class="expansion-panel-custom">
+                        <span><strong>Last seen:</strong> {{personOpened?.locatie || '--'}}</span>
+                        <span><strong>Time:</strong> {{(personOpened?.timestamp | date: 'medium') || '--'}}</span>
+                    </p>
+                </mat-expansion-panel>
+            </div>
+
+        </mat-accordion>
+    </div>
+
 </div>

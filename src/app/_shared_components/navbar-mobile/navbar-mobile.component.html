@@ -61,7 +61,8 @@
         </div>
 
         <div class="right-navbar">
-            <a class="no-underline hideElse" (click)="navbarMobileExpand = false">
+            <a class="no-underline hideElse" (click)="navbarMobileExpand = false"
+               [class.showCameraSettings]="isCameraSettings">
                 <span class="item" [matMenuTriggerFor]="menu">
                     <mat-icon>more_vert</mat-icon>
                 </span>
@@ -71,7 +72,7 @@
 
 </div>
 
-<mat-menu #menu="matMenu" class="hideElse">
+<mat-menu #menu="matMenu">
     <button mat-menu-item (click)="openDialog()">
         <mat-icon>linked_camera</mat-icon>
         <span>Add camera</span>
